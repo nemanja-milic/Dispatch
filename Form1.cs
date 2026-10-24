@@ -9,7 +9,15 @@ namespace Dispatch
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            await DatabaseConnection.Connect();
+            DatabaseConnection DBconnection = new DatabaseConnection();
+            await DBconnection.Connect();
+            await DBconnection.SQLConnection.CloseAsync();
+        }
+
+        private void btnShowDriversForm_Click(object sender, EventArgs e)
+        {
+            DriversForm driversForm = new DriversForm();
+            driversForm.ShowDialog();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Dispatch
     {
         public static string Read(string property)
         {
-            if(!File.Exists(".env"))
+            if (!File.Exists(".env"))
             {
                 Console.WriteLine("Unable to find .env file");
                 return "";

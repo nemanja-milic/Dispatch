@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnShowDriversForm = new Button();
             SuspendLayout();
+            // 
+            // btnShowDriversForm
+            // 
+            btnShowDriversForm.Location = new Point(64, 102);
+            btnShowDriversForm.Name = "btnShowDriversForm";
+            btnShowDriversForm.Size = new Size(149, 59);
+            btnShowDriversForm.TabIndex = 0;
+            btnShowDriversForm.Text = "Drivers";
+            btnShowDriversForm.UseVisualStyleBackColor = true;
+            btnShowDriversForm.Click += btnShowDriversForm_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1213, 679);
+            Controls.Add(btnShowDriversForm);
             Name = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnShowDriversForm;
     }
 }

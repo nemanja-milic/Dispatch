@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
@@ -9,7 +10,8 @@ namespace Dispatch
 {
     internal class DatabaseConnection
     {
-        public static async Task Connect()
+        public SqlConnection SQLConnection { get; private set; }
+        public async Task Connect()
         {
             var builder = new SqlConnectionStringBuilder
             {
@@ -23,11 +25,13 @@ namespace Dispatch
 
             try
             {
-                await using var connection = new SqlConnection(connectionString);
-
+                var connection = new SqlConnection(connectionString);
+                
                 await connection.OpenAsync();
 
                 Console.WriteLine("SUCCESS! Connected to SQL Server.");
+
+                SQLConnection = connection;
             }
             catch (SqlException e) 
             {
