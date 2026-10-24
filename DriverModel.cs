@@ -18,6 +18,7 @@ namespace Dispatch
         {
             Id = id;
             Name = name;
+            LastName = lastName;
             LicenseNumber = license;
         }
     }

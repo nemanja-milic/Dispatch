@@ -26,9 +26,19 @@ namespace Dispatch
 
             List<DriverModel> drivers = await DriverRepository.GetAll();
 
+
+
             foreach (DriverModel driver in drivers)
             {
-                Console.WriteLine(driver.Name);
+                GroupBox driverBox = new GroupBox();
+
+                driverBox.Text =
+                    $" Name  {driver.Name} \n" +
+                    $"Last name {driver.LastName}\n" +
+                    $" License Number {driver.LicenseNumber} ";
+
+                flowLayoutDrivers.Controls.Add(driverBox);
+                
             }
         }
     }
