@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace Dispatch
 {
-    internal class DriverModel
+    internal class DriverModel : DriverBase
     {
         public int Id { get; private set; }
-
-        public string Name { get; set; }
-        
-        public string LastName { get; set; }
-        public string LicenseNumber { get; set; }
         public DriverModel(int id, string name, string lastName, string license)
+            :base(name, lastName, license)
         {
             Id = id;
-            Name = name;
-            LastName = lastName;
-            LicenseNumber = license;
         }
     }
 }

@@ -12,8 +12,33 @@ namespace Dispatch
     {
         public async Task<List<DriverModel>> GetAll()
         {
-            return await FetchDriversFromDB("Select * from driver");
+            return await FetchDriversFromDB("Select Id, FirstName, LastName, LicenseNumber from driver");
             
+        }
+
+        public async Task AddDriver(CreateDriverModel driver)
+        {
+            List<DriverModel> drivers = new List<DriverModel>();
+
+            DatabaseConnection DBconnection = new DatabaseConnection();
+
+            await DBconnection.Connect();
+
+            await using SqlCommand command =
+                new SqlCommand("insert into Driver(FirstName, LastName, LicenseNumber) Values(@FirstName, @LastName, @LicenseNumber)", DBconnection.SQLConnection);
+
+            command.Parameters.AddWithValue("@FirstName", driver.FirstName);    
+            command.Parameters.AddWithValue("@LastName", driver.LastName);
+            command.Parameters.AddWithValue("@LicenseNumber", driver.LicenseNumber);
+
+
+            int rowsAffected = await command.ExecuteNonQueryAsync();
+
+            if (rowsAffected == 1)
+            {
+                Console.WriteLine("Driver added successfully!");
+            }
+
         }
 
         private async Task<List<DriverModel>> FetchDriversFromDB(string sqlCode)

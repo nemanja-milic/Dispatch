@@ -30,32 +30,58 @@
         {
             flowLayoutDrivers = new FlowLayoutPanel();
             label1 = new Label();
+            btnRefresh = new Button();
+            btnOpenDriverForm = new Button();
             SuspendLayout();
             // 
             // flowLayoutDrivers
             // 
-            flowLayoutDrivers.Location = new Point(12, 195);
+            flowLayoutDrivers.Location = new Point(10, 146);
+            flowLayoutDrivers.Margin = new Padding(3, 2, 3, 2);
             flowLayoutDrivers.Name = "flowLayoutDrivers";
-            flowLayoutDrivers.Size = new Size(1228, 471);
+            flowLayoutDrivers.Size = new Size(1074, 353);
             flowLayoutDrivers.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(455, 21);
+            label1.Location = new Point(398, 16);
             label1.Name = "label1";
-            label1.Size = new Size(219, 81);
+            label1.Size = new Size(176, 65);
             label1.TabIndex = 1;
             label1.Text = "Drivers";
             // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(1009, 106);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(75, 23);
+            btnRefresh.TabIndex = 2;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // btnOpenDriverForm
+            // 
+            btnOpenDriverForm.Location = new Point(895, 106);
+            btnOpenDriverForm.Name = "btnOpenDriverForm";
+            btnOpenDriverForm.Size = new Size(98, 23);
+            btnOpenDriverForm.TabIndex = 3;
+            btnOpenDriverForm.Text = "+ Add driver";
+            btnOpenDriverForm.UseVisualStyleBackColor = true;
+            btnOpenDriverForm.Click += btnOpenDriverForm_Click;
+            // 
             // DriversForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1261, 678);
+            ClientSize = new Size(1103, 508);
+            Controls.Add(btnOpenDriverForm);
+            Controls.Add(btnRefresh);
             Controls.Add(label1);
             Controls.Add(flowLayoutDrivers);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DriversForm";
             Text = "Drivers";
             Load += DriversForm_Load;
@@ -67,5 +93,7 @@
 
         private FlowLayoutPanel flowLayoutDrivers;
         private Label label1;
+        private Button btnRefresh;
+        private Button btnOpenDriverForm;
     }
 }

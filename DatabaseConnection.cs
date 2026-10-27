@@ -17,7 +17,7 @@ namespace Dispatch
             {
                 DataSource = EnvReader.Read("DBDataSource"),
                 IntegratedSecurity = true,
-                InitialCatalog = EnvReader.Read("DBTable"),
+                InitialCatalog = EnvReader.Read("DBName"),
                 TrustServerCertificate = true
             };
 

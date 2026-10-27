@@ -26,20 +26,36 @@ namespace Dispatch
 
             List<DriverModel> drivers = await DriverRepository.GetAll();
 
+            DisplayDrivers(drivers);
 
+        }
 
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<DriverModel> drivers = await DriverRepository.GetAll();
+            DisplayDrivers(drivers);
+        }
+
+        private void DisplayDrivers(List<DriverModel> drivers)
+        {
+            flowLayoutDrivers.Controls.Clear();
             foreach (DriverModel driver in drivers)
             {
                 GroupBox driverBox = new GroupBox();
 
                 driverBox.Text =
-                    $" Name  {driver.Name} \n" +
+                    $" Name  {driver.FirstName} \n" +
                     $"Last name {driver.LastName}\n" +
                     $" License Number {driver.LicenseNumber} ";
 
                 flowLayoutDrivers.Controls.Add(driverBox);
-                
             }
+        }
+
+        private void btnOpenDriverForm_Click(object sender, EventArgs e)
+        {
+            AddDriverForm addDriverForm = new AddDriverForm();
+            addDriverForm.ShowDialog();
         }
     }
 }
