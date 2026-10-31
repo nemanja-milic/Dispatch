@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dispatch
 {
-    internal abstract class DriverBase
+    public abstract class DriverBase
     {
         public string FirstName { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dispatch
 {
-    internal class DriverModel : DriverBase
+    public class DriverModel : DriverBase
     {
         public int Id { get; private set; }
         public DriverModel(int id, string name, string lastName, string license)

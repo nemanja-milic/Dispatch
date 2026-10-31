@@ -19,7 +19,7 @@ namespace Dispatch
 
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtFirstName.Text))
+            if (string.IsNullOrEmpty(txtFirstName.Text))
             {
                 MessageBox.Show("First name must not be empty");
                 return;
@@ -57,6 +57,5 @@ namespace Dispatch
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

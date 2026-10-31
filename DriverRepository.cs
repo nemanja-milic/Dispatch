@@ -41,6 +41,35 @@ namespace Dispatch
 
         }
 
+        public async Task EditDriver(DriverModel driver)
+        {
+            DatabaseConnection DBconnection = new DatabaseConnection();
+
+            await DBconnection.Connect();
+
+            await using SqlCommand command =
+                new SqlCommand("UPDATE Driver " +
+                "SET FirstName = @FirstName, " +
+                "LastName = @LastName, " +
+                "LicenseNumber = @LicenseNumber "+
+                "Where Id = @Id"
+                , DBconnection.SQLConnection);
+
+            command.Parameters.AddWithValue("@FirstName", driver.FirstName);
+            command.Parameters.AddWithValue("@LastName", driver.LastName);
+            command.Parameters.AddWithValue("@LicenseNumber", driver.LicenseNumber);
+            command.Parameters.AddWithValue("@Id", driver.Id);
+
+
+
+            int rowsAffected = await command.ExecuteNonQueryAsync();
+
+            if (rowsAffected == 1)
+            {
+                Console.WriteLine("Driver edited successfully!");
+            }
+        }
+
         private async Task<List<DriverModel>> FetchDriversFromDB(string sqlCode)
         {
             List<DriverModel> drivers = new List<DriverModel>();
