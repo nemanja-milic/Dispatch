@@ -31,9 +31,7 @@ namespace Dispatch
             
             DriverRepository driverRepository = new DriverRepository();
 
-            List<DriverStatus> driverStatuses = await driverRepository.FetchDriverStatus();
-
-            LoadRadioBtns(driverStatuses);
+            await LoadRadioBtns();
         }
 
         private async void btnSubmit_Click(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace Dispatch
             }
         }
 
-        private async void LoadRadioBtns(List<DriverStatus> driverStatuses)
+        private async Task LoadRadioBtns()
         {
             try
             {
