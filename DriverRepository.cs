@@ -12,7 +12,8 @@ namespace Dispatch
     {
         public async Task<List<DriverModel>> GetAll()
         {
-            return await FetchDriversFromDB("Select Id, FirstName, LastName, LicenseNumber from driver");
+            return await FetchDriversFromDB(
+                "select Driver.Id, FirstName, LastName, LicenseNumber, Driver_Status.StatusName, Driver_Status.Id as DriverStatusId\r\nFrom Driver\r\nInner Join Driver_Status On Driver.StatusId = Driver_Status.Id");
             
         }
 
@@ -25,11 +26,12 @@ namespace Dispatch
             await DBconnection.Connect();
 
             await using SqlCommand command =
-                new SqlCommand("insert into Driver(FirstName, LastName, LicenseNumber) Values(@FirstName, @LastName, @LicenseNumber)", DBconnection.SQLConnection);
+                new SqlCommand("insert into Driver(FirstName, LastName, LicenseNumber, StatusId) Values(@FirstName, @LastName, @LicenseNumber, @StatusId)", DBconnection.SQLConnection);
 
             command.Parameters.AddWithValue("@FirstName", driver.FirstName);    
             command.Parameters.AddWithValue("@LastName", driver.LastName);
             command.Parameters.AddWithValue("@LicenseNumber", driver.LicenseNumber);
+            command.Parameters.AddWithValue("@StatusId", driver.StatusId);
 
 
             int rowsAffected = await command.ExecuteNonQueryAsync();
@@ -70,6 +72,33 @@ namespace Dispatch
             }
         }
 
+        public async Task<List<DriverStatus>> FetchDriverStatus()
+        {
+            List<DriverStatus> driverStatuses = new List<DriverStatus>();
+            DatabaseConnection DBconnection = new DatabaseConnection();
+
+            await DBconnection.Connect();
+
+            await using SqlCommand command =
+                new SqlCommand("SELECT Id, StatusName FROM Driver_Status", DBconnection.SQLConnection);
+
+            await using SqlDataReader reader =
+                await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                DriverStatus driverStatus = new DriverStatus
+                (
+                    reader.GetInt32(reader.GetOrdinal("Id")),
+                    reader.GetString(reader.GetOrdinal("StatusName"))
+                );
+
+                driverStatuses.Add(driverStatus);
+            }
+
+            return driverStatuses;
+        }
+
         private async Task<List<DriverModel>> FetchDriversFromDB(string sqlCode)
         {
             List<DriverModel> drivers = new List<DriverModel>();
@@ -91,7 +120,9 @@ namespace Dispatch
                     reader.GetInt32(reader.GetOrdinal("Id")),
                     reader.GetString(reader.GetOrdinal("FirstName")),
                     reader.GetString(reader.GetOrdinal("LastName")),
-                    reader.GetString(reader.GetOrdinal("LicenseNumber"))
+                    reader.GetString(reader.GetOrdinal("LicenseNumber")),
+                    reader.GetInt32(reader.GetOrdinal("DriverStatusId")),
+                    reader.GetString(reader.GetOrdinal("StatusName"))
                 );
 
                 drivers.Add(driver);

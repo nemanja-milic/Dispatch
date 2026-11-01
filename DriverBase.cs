@@ -10,13 +10,15 @@ namespace Dispatch
     {
         public string FirstName { get; set; }
 
+        public int StatusId { get; set; }
         public string LastName { get; set; }
         public string LicenseNumber { get; set; }
-        public DriverBase(string name, string lastName, string license)
+        public DriverBase(string name, string lastName, string license, int statusId)
         {
             FirstName = name;
             LastName = lastName;
             LicenseNumber = license;
+            StatusId = statusId;
         }
     }
 }

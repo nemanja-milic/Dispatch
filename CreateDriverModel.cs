@@ -8,8 +8,8 @@ namespace Dispatch
 {
     internal class CreateDriverModel :DriverBase
     {
-        public CreateDriverModel(string name, string lastName, string LicenseNumber)
-                :base(name, lastName, LicenseNumber)
+        public CreateDriverModel(string name, string lastName, string LicenseNumber, int statusId)
+                :base(name, lastName, LicenseNumber, statusId)
         {
             
         }

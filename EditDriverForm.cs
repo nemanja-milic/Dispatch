@@ -31,16 +31,19 @@ namespace Dispatch
         {
             DriverRepository driverRepository = new DriverRepository();
 
-            DriverModel driver = new DriverModel(SelectedDriver.Id, txtFirstName.Text, txtLastName.Text, txtEditLicenseNumber.Text);
+            MessageBox.Show("Editing is not completed yet");
 
-            try
-            {
-                await driverRepository.EditDriver(driver);
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //DriverModel driver = new DriverModel(SelectedDriver.Id, txtFirstName.Text, txtLastName.Text, txtEditLicenseNumber.Text);
+
+            //try
+            //{
+            //    await driverRepository.EditDriver(driver);
+            //    MessageBox.Show("Successfully edited driver");
+            //}
+            //catch (Exception ex) 
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

@@ -35,71 +35,85 @@
             label2 = new Label();
             label3 = new Label();
             btnSubmit = new Button();
+            flowLayoutDriverStatus = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(299, 107);
+            txtFirstName.Location = new Point(342, 143);
+            txtFirstName.Margin = new Padding(3, 4, 3, 4);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(206, 23);
+            txtFirstName.Size = new Size(235, 27);
             txtFirstName.TabIndex = 0;
             // 
             // txtLicenseNumber
             // 
-            txtLicenseNumber.Location = new Point(298, 233);
+            txtLicenseNumber.Location = new Point(341, 311);
+            txtLicenseNumber.Margin = new Padding(3, 4, 3, 4);
             txtLicenseNumber.Name = "txtLicenseNumber";
-            txtLicenseNumber.Size = new Size(206, 23);
+            txtLicenseNumber.Size = new Size(235, 27);
             txtLicenseNumber.TabIndex = 1;
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(299, 171);
+            txtLastName.Location = new Point(342, 228);
+            txtLastName.Margin = new Padding(3, 4, 3, 4);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(206, 23);
+            txtLastName.Size = new Size(235, 27);
             txtLastName.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(299, 77);
+            label1.Location = new Point(342, 103);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(80, 20);
             label1.TabIndex = 3;
             label1.Text = "First Name";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(300, 144);
+            label2.Location = new Point(343, 192);
             label2.Name = "label2";
-            label2.Size = new Size(63, 15);
+            label2.Size = new Size(79, 20);
             label2.TabIndex = 4;
             label2.Text = "Last Name";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(299, 206);
+            label3.Location = new Point(342, 275);
             label3.Name = "label3";
-            label3.Size = new Size(91, 15);
+            label3.Size = new Size(112, 20);
             label3.TabIndex = 5;
             label3.Text = "License number";
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(299, 277);
+            btnSubmit.Location = new Point(341, 535);
+            btnSubmit.Margin = new Padding(3, 4, 3, 4);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(205, 39);
+            btnSubmit.Size = new Size(234, 52);
             btnSubmit.TabIndex = 6;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
             btnSubmit.Click += btnSubmit_Click;
             // 
+            // flowLayoutDriverStatus
+            // 
+            flowLayoutDriverStatus.FlowDirection = FlowDirection.TopDown;
+            flowLayoutDriverStatus.Location = new Point(343, 366);
+            flowLayoutDriverStatus.Name = "flowLayoutDriverStatus";
+            flowLayoutDriverStatus.Size = new Size(232, 132);
+            flowLayoutDriverStatus.TabIndex = 7;
+            // 
             // AddDriverForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(flowLayoutDriverStatus);
             Controls.Add(btnSubmit);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -107,8 +121,10 @@
             Controls.Add(txtLastName);
             Controls.Add(txtLicenseNumber);
             Controls.Add(txtFirstName);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AddDriverForm";
             Text = "AddDriverForm";
+            Load += AddDriverForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +138,6 @@
         private Label label2;
         private Label label3;
         private Button btnSubmit;
+        private FlowLayoutPanel flowLayoutDriverStatus;
     }
 }
