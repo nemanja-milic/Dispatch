@@ -43,7 +43,7 @@ namespace Dispatch
 
         }
 
-        public async Task EditDriver(DriverModel driver)
+        public async Task EditDriver(EditDriverModel driver)
         {
             DatabaseConnection DBconnection = new DatabaseConnection();
 
@@ -53,13 +53,15 @@ namespace Dispatch
                 new SqlCommand("UPDATE Driver " +
                 "SET FirstName = @FirstName, " +
                 "LastName = @LastName, " +
-                "LicenseNumber = @LicenseNumber "+
+                "LicenseNumber = @LicenseNumber, "+
+                "StatusId = @StatusId " +
                 "Where Id = @Id"
                 , DBconnection.SQLConnection);
 
             command.Parameters.AddWithValue("@FirstName", driver.FirstName);
             command.Parameters.AddWithValue("@LastName", driver.LastName);
             command.Parameters.AddWithValue("@LicenseNumber", driver.LicenseNumber);
+            command.Parameters.AddWithValue("@StatusId", driver.StatusId);
             command.Parameters.AddWithValue("@Id", driver.Id);
 
 

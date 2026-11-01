@@ -35,11 +35,12 @@
             label1 = new Label();
             txtEditLastName = new Label();
             label2 = new Label();
+            flowLayoutStatusPanel = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(234, 229);
+            btnSubmit.Location = new Point(235, 344);
             btnSubmit.Margin = new Padding(3, 2, 3, 2);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(206, 22);
@@ -99,11 +100,20 @@
             label2.TabIndex = 6;
             label2.Text = "License number";
             // 
+            // flowLayoutStatusPanel
+            // 
+            flowLayoutStatusPanel.FlowDirection = FlowDirection.TopDown;
+            flowLayoutStatusPanel.Location = new Point(235, 225);
+            flowLayoutStatusPanel.Name = "flowLayoutStatusPanel";
+            flowLayoutStatusPanel.Size = new Size(206, 100);
+            flowLayoutStatusPanel.TabIndex = 7;
+            // 
             // EditDriverForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(737, 460);
+            Controls.Add(flowLayoutStatusPanel);
             Controls.Add(label2);
             Controls.Add(txtEditLastName);
             Controls.Add(label1);
@@ -128,5 +138,6 @@
         private Label label1;
         private Label txtEditLastName;
         private Label label2;
+        private FlowLayoutPanel flowLayoutStatusPanel;
     }
 }
