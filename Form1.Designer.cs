@@ -29,24 +29,39 @@
         private void InitializeComponent()
         {
             btnShowDriversForm = new Button();
+            btnShowTrucksForm = new Button();
             SuspendLayout();
             // 
             // btnShowDriversForm
             // 
-            btnShowDriversForm.Location = new Point(64, 102);
+            btnShowDriversForm.Location = new Point(56, 76);
+            btnShowDriversForm.Margin = new Padding(3, 2, 3, 2);
             btnShowDriversForm.Name = "btnShowDriversForm";
-            btnShowDriversForm.Size = new Size(149, 59);
+            btnShowDriversForm.Size = new Size(130, 44);
             btnShowDriversForm.TabIndex = 0;
             btnShowDriversForm.Text = "Drivers";
             btnShowDriversForm.UseVisualStyleBackColor = true;
             btnShowDriversForm.Click += btnShowDriversForm_Click;
             // 
+            // btnShowTrucksForm
+            // 
+            btnShowTrucksForm.Location = new Point(56, 142);
+            btnShowTrucksForm.Margin = new Padding(3, 2, 3, 2);
+            btnShowTrucksForm.Name = "btnShowTrucksForm";
+            btnShowTrucksForm.Size = new Size(130, 44);
+            btnShowTrucksForm.TabIndex = 1;
+            btnShowTrucksForm.Text = "Trucks";
+            btnShowTrucksForm.UseVisualStyleBackColor = true;
+            btnShowTrucksForm.Click += btnShowTrucksForm_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1213, 679);
+            ClientSize = new Size(1061, 509);
+            Controls.Add(btnShowTrucksForm);
             Controls.Add(btnShowDriversForm);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -55,5 +70,6 @@
         #endregion
 
         private Button btnShowDriversForm;
+        private Button btnShowTrucksForm;
     }
 }
