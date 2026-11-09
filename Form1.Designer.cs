@@ -30,14 +30,14 @@
         {
             btnShowDriversForm = new Button();
             btnShowTrucksForm = new Button();
+            btnShowDispatch = new Button();
             SuspendLayout();
             // 
             // btnShowDriversForm
             // 
-            btnShowDriversForm.Location = new Point(56, 76);
-            btnShowDriversForm.Margin = new Padding(3, 2, 3, 2);
+            btnShowDriversForm.Location = new Point(64, 101);
             btnShowDriversForm.Name = "btnShowDriversForm";
-            btnShowDriversForm.Size = new Size(130, 44);
+            btnShowDriversForm.Size = new Size(149, 59);
             btnShowDriversForm.TabIndex = 0;
             btnShowDriversForm.Text = "Drivers";
             btnShowDriversForm.UseVisualStyleBackColor = true;
@@ -45,23 +45,32 @@
             // 
             // btnShowTrucksForm
             // 
-            btnShowTrucksForm.Location = new Point(56, 142);
-            btnShowTrucksForm.Margin = new Padding(3, 2, 3, 2);
+            btnShowTrucksForm.Location = new Point(64, 189);
             btnShowTrucksForm.Name = "btnShowTrucksForm";
-            btnShowTrucksForm.Size = new Size(130, 44);
+            btnShowTrucksForm.Size = new Size(149, 59);
             btnShowTrucksForm.TabIndex = 1;
             btnShowTrucksForm.Text = "Trucks";
             btnShowTrucksForm.UseVisualStyleBackColor = true;
             btnShowTrucksForm.Click += btnShowTrucksForm_Click;
             // 
+            // btnShowDispatch
+            // 
+            btnShowDispatch.Location = new Point(64, 277);
+            btnShowDispatch.Name = "btnShowDispatch";
+            btnShowDispatch.Size = new Size(149, 59);
+            btnShowDispatch.TabIndex = 2;
+            btnShowDispatch.Text = "Dispatch";
+            btnShowDispatch.UseVisualStyleBackColor = true;
+            btnShowDispatch.Click += btnShowDispatch_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1061, 509);
+            ClientSize = new Size(1213, 679);
+            Controls.Add(btnShowDispatch);
             Controls.Add(btnShowTrucksForm);
             Controls.Add(btnShowDriversForm);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -71,5 +80,6 @@
 
         private Button btnShowDriversForm;
         private Button btnShowTrucksForm;
+        private Button btnShowDispatch;
     }
 }

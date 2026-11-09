@@ -81,22 +81,6 @@ namespace Dispatch
 
             EditDriverForm editDriverForm = new EditDriverForm(driver);
             editDriverForm.ShowDialog();
-
-            
-
-            //DriverModel? driver = (DriverModel)btn.Tag;
-
-            //DriverRepository driverRepository = new DriverRepository();
-
-            //try
-            //{
-            //    await driverRepository.EditDriver(driver);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Unable to edit driver, error message "+ ex);
-            //}
-
         }
     }
 }

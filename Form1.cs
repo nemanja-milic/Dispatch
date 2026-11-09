@@ -25,5 +25,11 @@ namespace Dispatch
             TrucksForm tr = new TrucksForm();
             tr.ShowDialog();
         }
+
+        private void btnShowDispatch_Click(object sender, EventArgs e)
+        {
+            DispatchForm dispatchForm = new DispatchForm();
+            dispatchForm.ShowDialog();
+        }
     }
 }
