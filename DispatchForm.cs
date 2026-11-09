@@ -91,50 +91,7 @@ namespace Dispatch
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(txtOrigin.Text))
-            {
-                MessageBox.Show("Please eneter value for the Origin");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtDesitnation.Text))
-            {
-                MessageBox.Show("Please eneter value for the Destination");
-                return;
-            }
-
-
-            DateTime departure = dataTimeDeparture.Value;
-
-            if(departure > DateTime.Now)
-            {
-                MessageBox.Show("Minimum value is today");
-                return;
-            }
-
-            if (dataGridViewDrivers.SelectedRows.Count < 0)
-            {
-                MessageBox.Show("Please select driver");
-                return;
-            }
-
-            if (dataGridViewTrucks.SelectedRows.Count < 0)
-            {
-                MessageBox.Show("Please select truck");
-                return;
-            }
-
-            if(dataGridViewDrivers.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select driver");
-                return;
-            }
-
-            if (dataGridViewTrucks.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select truck");
-                return;
-            }
+            if (!ValidateFields()) return;
 
             DriverModel selectedDriver =
                     (DriverModel)dataGridViewDrivers.SelectedRows[0].DataBoundItem;
@@ -143,7 +100,7 @@ namespace Dispatch
             TruckModel selectedTruck =
                     (TruckModel)dataGridViewTrucks.SelectedRows[0].DataBoundItem;
 
-            DispatchModel model = new DispatchModel(0, txtOrigin.Text, txtDesitnation.Text, departure, selectedDriver.Id, selectedTruck.Id, FindIdOfDispatchStatus("Planned"));
+            DispatchModel model = new DispatchModel(0, txtOrigin.Text, txtDesitnation.Text, dataTimeDeparture.Value, selectedDriver.Id, selectedTruck.Id, FindIdOfDispatchStatus("Planned"));
 
             DispatchRepository dispatchRepository = new DispatchRepository();
             
@@ -157,6 +114,56 @@ namespace Dispatch
                 MessageBox.Show("Failed to add dispatch");
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private bool ValidateFields()
+        {
+            if (string.IsNullOrWhiteSpace(txtOrigin.Text))
+            {
+                MessageBox.Show("Please eneter value for the Origin");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDesitnation.Text))
+            {
+                MessageBox.Show("Please eneter value for the Destination");
+                return false;
+            }
+
+
+            DateTime departure = dataTimeDeparture.Value;
+
+            if (departure < DateTime.Now)
+            {
+                MessageBox.Show("Minimum value is today");
+                return false;
+            }
+
+            if (dataGridViewDrivers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select driver");
+                return false;
+            }
+
+            if (dataGridViewTrucks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select truck");
+                return false;
+            }
+
+            if (dataGridViewDrivers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select driver");
+                return false;
+            }
+
+            if (dataGridViewTrucks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select truck");
+                return false;
+            }
+
+            return true;
         }
     }
 }
