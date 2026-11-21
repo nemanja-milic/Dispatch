@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dispatch
 {
-    internal class DispatchStatus
+    public class DispatchStatus
     {
         public int Id { get; set; }
         public string Name { get; set; }

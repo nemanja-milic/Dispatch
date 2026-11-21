@@ -13,6 +13,42 @@ namespace Dispatch
     {
         public DispatchRepository() { }
 
+        public async Task<List<DisplayDispatchModel>> GetAllDispatch()
+        {
+            DatabaseConnection DBconnection = new DatabaseConnection();
+            List<DisplayDispatchModel> dispatchs = new List<DisplayDispatchModel>();
+
+
+            await DBconnection.Connect();
+
+            await using SqlCommand command =
+                new SqlCommand("SELECT Dispatch.Id as DispatchId , Origin, Destination, DepartureDate, Driver.FirstName as DriverName, Driver.LicenseNumber as DriverLicenseNumber, Vehicle.RegistrationNumber as VehicleRegistrationNumber, Vehicle.Make, Driver_Status.StatusName, Driver_Status.Id as DriverStatusId \r\nfrom Dispatch\r\nJoin Driver On Dispatch.DriverId = Driver.Id\r\nJoin Vehicle On Vehicle.Id = Dispatch.TruckId \r\nJoin Driver_Status On Dispatch.StatusId = Driver_Status.Id",
+                DBconnection.SQLConnection);
+
+            await using SqlDataReader reader =
+               await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                int driverStatusId = reader.GetInt32(reader.GetOrdinal("DriverStatusId"));
+                string driverStatusName = reader.GetString(reader.GetOrdinal("StatusName"));
+                DisplayDispatchModel dispatch = new DisplayDispatchModel
+                    (
+                        reader.GetInt32(reader.GetOrdinal("DispatchId")),
+                        reader.GetString(reader.GetOrdinal("Origin")),
+                        reader.GetString(reader.GetOrdinal("Destination")),
+                        reader.GetDateTime(reader.GetOrdinal("DepartureDate")),
+                        reader.GetString(reader.GetOrdinal("DriverName")),
+                        reader.GetString(reader.GetOrdinal("DriverLicenseNumber")),
+                        reader.GetString(reader.GetOrdinal("VehicleRegistrationNumber")),
+                        reader.GetString(reader.GetOrdinal("Make")),
+                        new DispatchStatus(driverStatusId, driverStatusName)
+                    );
+                dispatchs.Add(dispatch);
+            }
+            return dispatchs;
+        }
+
         public async Task Insert(DispatchModel dispatchModel)
         {
 

@@ -64,10 +64,6 @@ namespace Dispatch
             {
                 DispatchRepository dispatchRepository = new DispatchRepository();
                 DispatchStatuses = await dispatchRepository.FetchDispatchStatuses();
-                foreach(var status in DispatchStatuses)
-                {
-                    Console.WriteLine(status.Name);
-                }
             }
             catch (Exception ex)
             {
@@ -107,7 +103,7 @@ namespace Dispatch
             try
             {
                 await dispatchRepository.Insert(model);
-
+                MessageBox.Show("Successfully added new dispatch");
             }
             catch (Exception ex) 
             {
@@ -133,7 +129,7 @@ namespace Dispatch
 
             DateTime departure = dataTimeDeparture.Value;
 
-            if (departure < DateTime.Now)
+            if (DateTime.Compare(departure, DateTime.Now.Date) < 0)
             {
                 MessageBox.Show("Minimum value is today");
                 return false;

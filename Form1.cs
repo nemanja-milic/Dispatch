@@ -28,7 +28,7 @@ namespace Dispatch
 
         private void btnShowDispatch_Click(object sender, EventArgs e)
         {
-            DispatchForm dispatchForm = new DispatchForm();
+            DispatchsForm dispatchForm = new DispatchsForm();
             dispatchForm.ShowDialog();
         }
     }
