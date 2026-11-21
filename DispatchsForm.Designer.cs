@@ -30,10 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewDispath = new DataGridView();
-            displayDispatchModelBindingSource1 = new BindingSource(components);
-            displayDispatchModelBindingSource = new BindingSource(components);
-            dispatchModelBindingSource = new BindingSource(components);
-            button1 = new Button();
             Origin = new DataGridViewTextBoxColumn();
             Destination = new DataGridViewTextBoxColumn();
             DepartureDate = new DataGridViewTextBoxColumn();
@@ -46,6 +42,11 @@
             originDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             destinationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             departureDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            displayDispatchModelBindingSource1 = new BindingSource(components);
+            displayDispatchModelBindingSource = new BindingSource(components);
+            dispatchModelBindingSource = new BindingSource(components);
+            button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDispath).BeginInit();
             ((System.ComponentModel.ISupportInitialize)displayDispatchModelBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)displayDispatchModelBindingSource).BeginInit();
@@ -64,29 +65,6 @@
             dataGridViewDispath.RowHeadersWidth = 51;
             dataGridViewDispath.Size = new Size(1082, 442);
             dataGridViewDispath.TabIndex = 0;
-            // 
-            // displayDispatchModelBindingSource1
-            // 
-            displayDispatchModelBindingSource1.DataSource = typeof(DisplayDispatchModel);
-            // 
-            // displayDispatchModelBindingSource
-            // 
-            displayDispatchModelBindingSource.DataSource = typeof(DisplayDispatchModel);
-            // 
-            // dispatchModelBindingSource
-            // 
-            dispatchModelBindingSource.AllowNew = false;
-            dispatchModelBindingSource.DataSource = typeof(DispatchModel);
-            // 
-            // button1
-            // 
-            button1.Location = new Point(976, 9);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(116, 40);
-            button1.TabIndex = 1;
-            button1.Text = "Add dispatch";
-            button1.UseVisualStyleBackColor = true;
             // 
             // Origin
             // 
@@ -160,11 +138,47 @@
             departureDateDataGridViewTextBoxColumn.HeaderText = "DepartureDate";
             departureDateDataGridViewTextBoxColumn.Name = "departureDateDataGridViewTextBoxColumn";
             // 
+            // displayDispatchModelBindingSource1
+            // 
+            displayDispatchModelBindingSource1.DataSource = typeof(DisplayDispatchModel);
+            // 
+            // displayDispatchModelBindingSource
+            // 
+            displayDispatchModelBindingSource.DataSource = typeof(DisplayDispatchModel);
+            // 
+            // dispatchModelBindingSource
+            // 
+            dispatchModelBindingSource.AllowNew = false;
+            dispatchModelBindingSource.DataSource = typeof(DispatchModel);
+            // 
+            // button1
+            // 
+            button1.Location = new Point(976, 9);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 40);
+            button1.TabIndex = 1;
+            button1.Text = "Add dispatch";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ControlLight;
+            button2.Location = new Point(12, 17);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 32);
+            button2.TabIndex = 2;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // DispatchsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1102, 512);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridViewDispath);
             Margin = new Padding(3, 2, 3, 2);
@@ -196,5 +210,6 @@
         private DataGridViewTextBoxColumn originDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn destinationDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn departureDateDataGridViewTextBoxColumn;
+        private Button button2;
     }
 }

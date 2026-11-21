@@ -7,7 +7,7 @@
     <Compile Update="AddTruckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DispatchForm.cs">
+    <Compile Update="AddDispatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DispatchsForm.cs">

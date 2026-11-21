@@ -1,6 +1,6 @@
 ﻿namespace Dispatch
 {
-    partial class DispatchForm
+    partial class AddDispatchForm
     {
         /// <summary>
         /// Required designer variable.

@@ -19,13 +19,29 @@ namespace Dispatch
 
         private async void Dispatchs_Load(object sender, EventArgs e)
         {
+            await FetchDispatchs();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddDispatchForm addDispatchForm = new AddDispatchForm();
+            addDispatchForm.ShowDialog();
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            await FetchDispatchs();
+        }
+
+        private async Task FetchDispatchs()
+        {
             DispatchRepository dispatchRepository = new DispatchRepository();
             try
             {
                 List<DisplayDispatchModel> dispatchModels = await dispatchRepository.GetAllDispatch();
                 dataGridViewDispath.DataSource = dispatchModels;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Failed to load dispatchs");
                 MessageBox.Show(ex.Message);

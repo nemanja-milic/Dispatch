@@ -11,10 +11,10 @@ using System.Xml.Linq;
 
 namespace Dispatch
 {
-    public partial class DispatchForm : Form
+    public partial class AddDispatchForm : Form
     {
         List<DispatchStatus> DispatchStatuses = new List<DispatchStatus>();
-        public DispatchForm()
+        public AddDispatchForm()
         {
             InitializeComponent();
         }
