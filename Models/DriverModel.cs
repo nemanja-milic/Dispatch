@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dispatch
+namespace Dispatch.Models
 {
-    public class DriverModel : DriverBase
+    public class DriverModel : DriverBaseModel
     {
         public int Id { get; private set; }
 

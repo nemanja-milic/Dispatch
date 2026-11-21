@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dispatch.Models;
+using Dispatch.Repositories;
 using Microsoft.Data.SqlClient;
 
 namespace Dispatch

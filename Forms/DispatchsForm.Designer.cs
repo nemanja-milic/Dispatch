@@ -1,4 +1,6 @@
-﻿namespace Dispatch
+﻿using Dispatch.Models;
+
+namespace Dispatch
 {
     partial class DispatchsForm
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dispatch
+namespace Dispatch.Models
 {
     public class DispatchModel :DispatchModelBase
     {

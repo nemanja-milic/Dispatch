@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dispatch
+namespace Dispatch.Enums
 {
-    internal class DriverStatus
+    public class DispatchStatus
     {
-        public int Id {  get; private set; }
-        public string Name { get; private set; }
-        public DriverStatus(int id, string name) 
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public DispatchStatus(int id, string name)
         {
             Id = id;
             Name = name;

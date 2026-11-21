@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dispatch
+namespace Dispatch.Models
 {
-    public abstract class DriverBase
+    public abstract class DriverBaseModel
     {
         public string FirstName { get; set; }
 
         public int StatusId { get; set; }
         public string LastName { get; set; }
         public string LicenseNumber { get; set; }
-        public DriverBase(string name, string lastName, string license, int statusId)
+        public DriverBaseModel(string name, string lastName, string license, int statusId)
         {
             FirstName = name;
             LastName = lastName;

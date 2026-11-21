@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dispatch.Models;
 using Microsoft.Data.SqlClient;
 
-namespace Dispatch
+namespace Dispatch.Repositories
 {
     internal class TruckRepository
     {
